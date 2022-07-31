@@ -1,0 +1,9 @@
+Shared and Distributed memory 
+|
+|___Shared memory (KEY : all processors can see what happening in the shared memory)
+|    |___UMA  : Uniform memory access (each processor can access memory equally fast)
+|    |   |____SMP : symmetric multi-processing (architecture Modern processors commonly use with cash (issue: case coherency))
+|    |
+|    |___NUMA : Non-uniform memory access (Mostly by connecting multiple SMP systems through a system bus)
+|
+|___Distributed memory (KEY : Each processor has it’s own local memory with it’s own address space)
