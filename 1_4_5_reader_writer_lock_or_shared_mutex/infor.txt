@@ -1,0 +1,10 @@
+Reader writer lock or shared mutex
+
+Use:
+Multiple threads can read form same memory without issue but only one thread should read from it 
+and this can achieved by shared mutex.
+
+shared mutex have two locking modes.
+
+1. shared read mode - lock and multiple threads can read at same time
+2. exclusive write mode - only one thread can lock and write (other threads cannot read as well)
