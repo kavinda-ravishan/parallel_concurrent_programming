@@ -1,0 +1,15 @@
+Concurrent vs parallel execution
+--------------------------------
+
+Concurrent
+                        
+Task 1 : t1 -----          Processor
+                | ---- t1 t2 t1 t2 t2 t1 ....   > time
+Task 2 : t2 -----
+
+
+Parallel
+                Processor (thread 1)     
+Task 1 : t1 ----- t1 t1 t1 .......   > time
+                Processor (thread 2)   
+Task 2 : t2 ----- t2 t2 t2 .......   > time
