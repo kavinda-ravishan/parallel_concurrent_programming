@@ -1,0 +1,8 @@
+Dead lock
+
+Try to lock a mutex that already lock (by the same thread) and it will enter into the waiting list for that mutex.
+this result the dead lock because no other thread can unlock that mutex.
+
+Reentrant mutex (Recursive Lock)
+
+Can lock multiple time and need to unlock same number of times for unlock the lock.
