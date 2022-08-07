@@ -61,6 +61,8 @@ void add_items_try_lock(const char *name)
     while (items <= 20)
     {
         // if ((items_to_add > 0) && (mutex.try_lock() == true))
+        // IMPORTENT : order of evaluation is matter here
+        // first check (items_to_add > 0) if its true then only call try lock 
         if (items_to_add && mutex.try_lock())
         {
             items += items_to_add;
