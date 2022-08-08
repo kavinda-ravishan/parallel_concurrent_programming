@@ -1,0 +1,1 @@
+Multiple threads are actively responding to each other to resolve conflict, but that prevent them from making progress.
