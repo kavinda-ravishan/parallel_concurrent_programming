@@ -1,0 +1,1 @@
+starvation happen when a thread unable to gain access to necessary resources due to other greedy threads.
