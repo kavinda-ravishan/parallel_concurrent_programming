@@ -1,0 +1,1 @@
+Thread acquire the lock and terminates; now other threads cannot acquire the lock.
