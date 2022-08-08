@@ -1,0 +1,16 @@
+Dead lock
+
+Ex : 
+1.
+Try to lock a mutex that already lock (by the same thread) and it will enter into the waiting list for that mutex.
+this result the dead lock because no other thread can unlock that mutex.
+
+Reentrant mutex (Recursive Lock)
+Can lock multiple time and need to unlock same number of times for unlock the lock.
+
+2.
+If for use the resource thread need unlock two locks but two threads unlocks each lock and wait for other lock.
+
+Prioritize the lock (both threads compete to take prioritize lock first)
+Scoped_lock have built-in dead lock avoiding algorithm
+
