@@ -1,0 +1,32 @@
+Semaphore (counting semaphore)
+----------
+
+Synchronization mechanism that can used to control access to shared resources.
+
+1.
+Unlike mutex semaphore can allow multiple threads to access the resource at the same time 
+and it has a counter to track how many times it’s been acquired or released.
+
+2.
+if counter is positive any thread can acquire the semaphore which then decrement that counter value
+
+3.
+if counter reaches zero then threads trying to acquire the semaphore will be blocked 
+and place in the queue to wait until it's available.
+
+4.
+When thread is done using the resource it will release the semaphore which increment the counter value 
+and if there any waiting threads they will be signaled to wake up.
+
+
+Mutex vs. semaphore
+--------------------
+
+Mutex
+Can only acquire/released by the same thread
+
+semaphore
+Can be acquire and released by different threads
+(any thread can acquire the semaphore and decrement the counter value or
+any thread can release the semaphore and increment the counter value)
+
