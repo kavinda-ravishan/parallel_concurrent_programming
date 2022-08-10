@@ -1,0 +1,30 @@
+condition variable
+-------------------
+
+Act as a queue or waiting room for threads for a certain condition
+(Place for threads to wait until notified)
+
+condition variable associate with mutex and they work together for implement a higher-level construct call monitor.
+
+Monitor
+-------
+Monitors protect critical sections of code using mutual exclusion and they provide,
+1. Mechanism for threads for wait or block until a certain condition occurs
+2. Mechanism for signal those waiting threads when their conditions are met
+
+
+condition variable's three main operations
+------------------------------------------
+
+Wait:
+Release the lock on the mutex.
+Go to sleep and enter waiting queue.
+Reacquire lock when woken up.
+
+Signal:
+Wake up one thread from condition variable queue.
+(Also called notify or wake)
+
+Broadcast:
+Wake up all threads from condition variable queue.
+(Also called notify all or wake all)
