@@ -1,0 +1,8 @@
+producer consumer
+
+Average rate   <  Average rate 
+of production     of consumption
+
+Pipeline
+           queue                         queue
+producer  ------->  consumer, producer  -------> consumer
