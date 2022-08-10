@@ -2,6 +2,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <thread>
+// #include <semaphore>
 
 class Semaphore
 {
@@ -33,6 +34,7 @@ private:
 };
 
 Semaphore port(4);
+// std::counting_semaphore port(4);
 
 void task(int id)
 {
