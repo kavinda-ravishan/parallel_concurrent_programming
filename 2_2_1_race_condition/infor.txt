@@ -1,0 +1,23 @@
+Race conditon
+
+Flor in the timing or ordering of the program’s execution that causes incorrect behaviors.
+
+Ex : 
+
+Correct flow:
+x = 10 --->  x = x + 3 ---->  x = x * 2 ---> x = 26
+
+
+Incorrect flow:
+
+t1 start      t1                                    t1 join
+__________ x = x * 2__________________________________
+       |              |                               |
+x = 10 -------------> x = 20 --------------> x = 23---|---> x = 23
+                              |              |        |
+______________________________|___ x = x + 3_|________|
+t2 start                               t2            t2 join
+
+
+Hard to find the issue because order can change run to run.
+Heisenbug : A software bug that disappears when you try to study it.
