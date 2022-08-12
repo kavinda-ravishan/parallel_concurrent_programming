@@ -1,0 +1,31 @@
+Computational graph
+-------------------
+
+Amount of time take for execute - (t)
+
+main thread --->
+task 1 --> task 2 --> task 3 --> task 4
+ (25)        (15)       (5)        (15)
+
+Work = 25 + 15 + 5 + 15 = 60 seconds
+
+Directed Acyclic Graph (DAG)
+----------------------------
+               Critical path
+           -----------------------
+          |      Thread A         |
+          |   ---> task 1 ----    |
+          |  |      (25)      |   |
+----------   |                \/   ---------------------------
+Spawn (Fork) ---> task 2 ----> Sync(join) --> task 3 --> task 4
+Main thread        (15)                         (5)        (15)
+
+Sum of time along the critical path (shortest possible execution path)
+Span = 25 + 5 + 15 = 45 seconds
+
+
+                        Work     60
+* Ideal parallelism =   ---- =  ---- = 1.33
+                        Span     45
+
+* This mens at best parallel version is 33% faster than sequential version
