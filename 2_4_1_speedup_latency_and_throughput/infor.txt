@@ -1,0 +1,58 @@
+Speedup latency and throughput
+------------------------------
+
+Weak scaling:
+
+10 tasks from 1 processor (take 10 seconds) -> 20 tasks from 2 processors (take 10 seconds)
+
+* Variable number of processors with fixed problem size per processor
+* Accomplish more work in the same time
+
+
+Strong scaling:
+
+10 tasks from 1 processor (take 10 seconds) -> 10 tasks from 2 processors (take 5 seconds)
+
+* Variable number of processors with fixed total problem size
+* Accomplish same work in less time
+
+
+Throughput (The number of tasks it can complete in a given amount of time)
+---------------------------------------------------------------------------
+
+                (# tasks)
+Throughput =   -----------
+                   time
+
+
+Latency (Amount of time take to execute a task):-
+
+            time
+Latency =  ------
+            task
+
+
+Ex : 
+If one task take 6 minutes
+    Latency = 6 minutes
+
+    One processor can execute 10 tasks per hour
+    Latency = 6 minutes
+    Throughput = 10 tasks per hour
+
+    Two processors can execute 20 parallelly tasks per hour
+    Latency = 6 minutes
+    Throughput = 20 tasks per hour
+
+
+Speedup (use for measure program's efficiency)
+-----------------------------------------------
+
+           (Sequential execution time or optimal time take to execute program using single processor)
+Speedup =  ------------------------------------------------------------------------------------------
+                                (parallel execution time with N workers(processors))
+
+if one processor take 60 minutes and two processors take 30 minutes
+            (60 minutes)
+Speedup =  -------------  = 2
+            (30 minutes)
