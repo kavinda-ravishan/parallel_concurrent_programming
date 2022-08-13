@@ -1,0 +1,34 @@
+Amdahls's law
+-------------
+                         1
+Overall speedup =  -------------
+                              P
+                   (1 - p) + ---
+                              S 
+
+P = Portion of program that's parallelizable
+S = Speedup of the parallelized portion 
+
+* If 95% of program can parallelize and that 95% of program have speedup of 2 if we use two processors
+
+                            1
+Overall speedup =  -----------------   ~ 1.9
+                                0.95
+                   (1 - 0.95) + ----
+                                  2 
+
+* If we add 3rd processor (S = 3, P = 0.95)
+
+                            1
+Overall speedup =  -----------------   ~ 2.7
+                                0.95
+                   (1 - 0.95) + ----
+                                  3 
+
+* with 1000 processor (S = 1000, P = 0.95)
+
+                            1
+Overall speedup =  -----------------   ~ 19.6
+                                0.95   
+                   (1 - 0.95) + ----
+                                1000 
