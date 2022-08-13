@@ -1,0 +1,17 @@
+Divide and conquer
+------------------
+
+1. Divide the problem into subproblems.
+2. Conquer the subproblems by solving them recursively.
+3. Combine the solutions to the subproblems.
+
+
+Algorithm
+
+* if "base case"
+    -> solve problem.
+
+* else
+    -> partition problem into "left" and "right" subproblems.
+    -> solve "left" problem using divide-and-conquer.
+    -> solve "right" problem using divide-and-conquer.
