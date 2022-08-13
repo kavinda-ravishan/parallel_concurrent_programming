@@ -25,8 +25,9 @@ unsigned long long recursive_sum(unsigned long long low, unsigned long long high
 
 int main()
 {
-    unsigned int no_threads = (unsigned int)log2(8);
-    printf("Sum : %lli\n", recursive_sum(1, 100, no_threads));
+    unsigned int no_threads = 8;
+    unsigned int max_depth = (unsigned int)log2(no_threads);
+    printf("Sum : %lli\n", recursive_sum(1, 100, max_depth));
 
     return 0;
 }
