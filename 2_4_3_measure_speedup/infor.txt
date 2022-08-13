@@ -1,0 +1,11 @@
+Ex:
+
+Sequential program take 25 seconds and parallel version with 2 processors take 17 seconds
+
+          (25 seconds)
+Speedup = ------------  =  1.47
+          (17 seconds)
+
+                  speedup            (1.47)
+Efficiency =  ----------------- =    ------ = 73.5%
+              (# of processors)         2
