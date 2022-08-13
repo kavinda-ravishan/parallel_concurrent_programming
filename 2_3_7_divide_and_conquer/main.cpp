@@ -20,12 +20,12 @@ unsigned long long recursive_sum(unsigned long long low, unsigned long long high
         auto sum_1 = std::async(std::launch::async, recursive_sum, low, mid - 1, max_depth, depth + 1);
         auto sum_2 = recursive_sum(mid, high, max_depth, depth + 1);
         return sum_1.get() + sum_2;
-    }Divide and conquer
+    }
 }
 
 int main()
 {
-    unsigned int no_threads = (unsigned int)log2(16);
+    unsigned int no_threads = (unsigned int)log2(8);
     printf("Sum : %lli\n", recursive_sum(1, 100, no_threads));
 
     return 0;
