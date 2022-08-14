@@ -1,0 +1,131 @@
+Designing parallel program
+--------------------------
+
+1. Partitioning
+2. Communication
+3. Agglomeration
+4. Mapping
+
+1. Partitioning
+---------------
+
+    * Break the problem down into discrete pieces of work.
+
+                    partition         work_2
+    Large problem ------------> work_1   work_3
+                                    work_4
+
+    Two basic approaches for partitioning:
+
+    1. Domain decomposition (data decomposition)
+    Dividing the data associate with the problem into lot of small (equally size if possible) partitions,
+    and then to consider the computation to be performed and associating with that partition data.
+
+    Ex: 
+
+    * Block decomposition
+
+    data
+
+    partition 1      partition 2
+    D1       D1    |    D2      D2
+    D1       D1    |    D2      D2
+    D1       D1    |    D2      D2
+
+    * Cyclic decomposition
+
+    data
+
+    partition 1/partition 2
+    D1   D1   D2   D1
+    D1   D2   D1   D2
+    D1   D2   D2   D1
+
+    2. Functional decomposition
+
+    Rather than focusing on the data being manipulated functional decomposition began by considering
+    all of the computational work that program need to do, and then consider the data involved for each of these tasks.
+
+    Tasks      data
+
+    task 1     data 1, data2
+    task 2     data 2
+    task 3     data 4, data 3, data 2
+    task 4     data 5
+
+2. Communication
+----------------
+
+    * Coordinate task execution and share information
+
+                             t1  t2    t6                 t1---t2---t6
+                  partition                 computation    | /     /
+    Large problem --------->    t5          ---------->    t5 ____/
+                                                          /  \
+                            t4   t3  t7                  t4---t3---t7
+
+        1. Synchronous (blocking communication)
+            * tasks wait until entire communication is complete
+            * cannot do other work while in progress
+
+        2. Asynchronous (non-blocking) communication
+            * Tasks do not wait for communication to complete.
+            * can do other work while in progress.
+        
+        Factors to be consider,
+        * Overhead  - Compute time/resources spent on communication
+        * Latency   - Time to send message from A to B (microseconds)
+        * Bandwidth - Amount of data communicated per second (GB/s)
+
+3. Agglomeration
+----------------
+
+    Modify the design to run efficiently on the specific computer.
+    (ex : There might be more tasks than number of processors.)
+
+    * Combine tasks and replicate data/computation to increase efficiency.
+                                   ______________
+    t1---t2---t6                  | t1---t2---t6| 
+    |  /     /                    |_____________|  
+    | /     /    agglomeration     | 
+    |/     /     ----------->    __|____________
+    t5 ___/                     |   t5          |
+    /  \                        |  / \          | 
+    t4---t3---t7                | t4---t3---t7  |
+                                |_______________|
+
+                time spend program for computation
+    Granularity =  ----------------------------------
+                time spend program for communication
+
+    Parallelism can be divide into two catagories based on amount of work performed by each task
+
+        1. Fine-grained parallelism
+            * Large number of small tasks
+            * Advantage -> Good distribution of workload (load balancing)
+            * Disadvantages -> Low computation-to-communication ratio
+        
+        2. Coarse-grained parallelism
+            * Small number of large tasks
+            * Advantage -> High computation-to-communication ratio
+            * Disadvantages -> Inefficient load balancing
+        
+        * Fine-grained and Coarse-grained are extrema cases of parallelism 
+        but most general purpose computers that's usually the some form of medium-grained parallelism.
+
+3. Mapping
+----------
+
+    Specify where each task will execute (physical processor).
+
+    This dose not apply to,
+        * Single-core processor
+        * Automated task scheduling (most general purpose operating systems like windows)
+
+
+    Goal of Mapping:
+        * minimize the total execution time.
+
+        Strategies:
+        1. Place tasks that can execute concurrently on deferent processors
+        2. Place tasks the communication frequently on the same processor
