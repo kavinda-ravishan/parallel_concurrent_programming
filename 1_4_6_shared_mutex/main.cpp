@@ -15,7 +15,7 @@ void calender_reader(const int id)
     {
         // shared read mode - lock and multiple threads can read at same time
         // today is a shared memory
-        mutex.lock_shared(); // readers can read same time (all reader threads can access this memmory at same time)
+        mutex.lock_shared(); // readers can read same time (all reader threads can access this memory at same time)
         printf("Reader-%i sees today is %s\n", id, WEEKDAYS[today]);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
         mutex.unlock_shared();
